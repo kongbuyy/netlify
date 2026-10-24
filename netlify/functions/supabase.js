@@ -1,7 +1,8 @@
 exports.handler = async (event) => { 
 const param=JSON.parse(event.body);
 const apikey=process.env.SUPABASE_API_KEY;
-const res = await fetch('https://lyrkyldfavompwlyeipi.supabase.co/rest/v1/rpc/save_'+param.txtName, {
+const url=process.env.SUPABASE_DATABASE_FUNCTIONS_API;
+const res = await fetch(url+param.txtName, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
